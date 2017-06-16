@@ -1,0 +1,11 @@
+[package]
+name = "candlelight"
+version = "0.1.0"
+authors = ["cdv"]
+
+[dependencies]
+clap = "2"
+
+[[bin]]
+path = "src/main.rs"
+name = "cndl"
