@@ -12,7 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 extern crate clap;
-use clap::{App, Arg};
+use clap::{App, Arg, SubCommand};
 
 use std::fs::File;
 use std::io;
@@ -64,6 +64,14 @@ fn main() {
                 .conflicts_with("minimum")
                 .group("input")
                 .help("Sets brightness to maximum value"),
+        )
+        .subcommand(
+            SubCommand::with_name("temp")
+                .about("simple onetime color temperature change with redshift")
+                .arg(Arg::with_name("INPUT")
+                     .index(1)
+                     .help("Value to set color temperature to")
+                )
         )
         .get_matches();
     //println!("matches:\n  {:?}\n\n", matches);
